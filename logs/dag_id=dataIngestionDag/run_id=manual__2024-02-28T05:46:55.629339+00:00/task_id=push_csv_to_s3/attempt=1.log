@@ -1,0 +1,24 @@
+[2024-02-28T05:47:14.836+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataIngestionDag.push_csv_to_s3 manual__2024-02-28T05:46:55.629339+00:00 [queued]>
+[2024-02-28T05:47:14.843+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataIngestionDag.push_csv_to_s3 manual__2024-02-28T05:46:55.629339+00:00 [queued]>
+[2024-02-28T05:47:14.843+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-28T05:47:14.858+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): push_csv_to_s3> on 2024-02-28 05:46:55.629339+00:00
+[2024-02-28T05:47:14.862+0000] {standard_task_runner.py:60} INFO - Started process 4756 to run task
+[2024-02-28T05:47:14.866+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'dataIngestionDag', 'push_csv_to_s3', 'manual__2024-02-28T05:46:55.629339+00:00', '--job-id', '81', '--raw', '--subdir', 'DAGS_FOLDER/ingestionPipeline.py', '--cfg-path', '/tmp/tmp9qphrqxs']
+[2024-02-28T05:47:14.868+0000] {standard_task_runner.py:88} INFO - Job 81: Subtask push_csv_to_s3
+[2024-02-28T05:47:14.905+0000] {task_command.py:423} INFO - Running <TaskInstance: dataIngestionDag.push_csv_to_s3 manual__2024-02-28T05:46:55.629339+00:00 [running]> on host ip-172-31-12-93.ap-south-1.compute.internal
+[2024-02-28T05:47:14.967+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='shubh.sehgal2506@gmail.com' AIRFLOW_CTX_DAG_OWNER='shubh-airflow' AIRFLOW_CTX_DAG_ID='dataIngestionDag' AIRFLOW_CTX_TASK_ID='push_csv_to_s3' AIRFLOW_CTX_EXECUTION_DATE='2024-02-28T05:46:55.629339+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-28T05:46:55.629339+00:00'
+[2024-02-28T05:47:14.968+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+TypeError: pushToS3() missing 5 required positional arguments: 'AWS_REGION', 'AWS_KEY', 'AWS_SECRET_KEY', 'S3_BUCKET_NAME', and 'CSV_FILE_NAME'
+[2024-02-28T05:47:14.972+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=dataIngestionDag, task_id=push_csv_to_s3, execution_date=20240228T054655, start_date=20240228T054714, end_date=20240228T054714
+[2024-02-28T05:47:14.983+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 81 for task push_csv_to_s3 (pushToS3() missing 5 required positional arguments: 'AWS_REGION', 'AWS_KEY', 'AWS_SECRET_KEY', 'S3_BUCKET_NAME', and 'CSV_FILE_NAME'; 4756)
+[2024-02-28T05:47:14.997+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-28T05:47:15.011+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

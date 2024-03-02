@@ -1,0 +1,44 @@
+[2024-02-29T17:35:53.876+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataIngestionDag.get_clean_csv_from_s3 manual__2024-02-29T17:34:02.112751+00:00 [queued]>
+[2024-02-29T17:35:53.883+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataIngestionDag.get_clean_csv_from_s3 manual__2024-02-29T17:34:02.112751+00:00 [queued]>
+[2024-02-29T17:35:53.884+0000] {taskinstance.py:2193} INFO - Starting attempt 3 of 3
+[2024-02-29T17:35:53.900+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): get_clean_csv_from_s3> on 2024-02-29 17:34:02.112751+00:00
+[2024-02-29T17:35:53.905+0000] {standard_task_runner.py:60} INFO - Started process 32263 to run task
+[2024-02-29T17:35:53.909+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'dataIngestionDag', 'get_clean_csv_from_s3', 'manual__2024-02-29T17:34:02.112751+00:00', '--job-id', '156', '--raw', '--subdir', 'DAGS_FOLDER/ingestionPipeline.py', '--cfg-path', '/tmp/tmplope_egu']
+[2024-02-29T17:35:53.911+0000] {standard_task_runner.py:88} INFO - Job 156: Subtask get_clean_csv_from_s3
+[2024-02-29T17:35:53.948+0000] {task_command.py:423} INFO - Running <TaskInstance: dataIngestionDag.get_clean_csv_from_s3 manual__2024-02-29T17:34:02.112751+00:00 [running]> on host ip-172-31-12-93.ap-south-1.compute.internal
+[2024-02-29T17:35:54.015+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='shubh.sehgal2506@gmail.com' AIRFLOW_CTX_DAG_OWNER='shubh-airflow' AIRFLOW_CTX_DAG_ID='dataIngestionDag' AIRFLOW_CTX_TASK_ID='get_clean_csv_from_s3' AIRFLOW_CTX_EXECUTION_DATE='2024-02-29T17:34:02.112751+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-29T17:34:02.112751+00:00'
+[2024-02-29T17:35:54.229+0000] {taskinstance.py:2728} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/usr/local/lib/python3.10/dist-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/home/ubuntu/airflow/pythonScript.py", line 69, in getCleanedDataFromS3
+    s3.Bucket(CLEANED_S3_BUCKET_NAME).download_file(Key=CLEANED_CSV_FILE_NAME, Filename=CLEANED_CSV_FILE_NAME)
+  File "/usr/local/lib/python3.10/dist-packages/boto3/s3/inject.py", line 279, in bucket_download_file
+    return self.meta.client.download_file(
+  File "/usr/local/lib/python3.10/dist-packages/boto3/s3/inject.py", line 192, in download_file
+    return transfer.download_file(
+  File "/usr/local/lib/python3.10/dist-packages/boto3/s3/transfer.py", line 405, in download_file
+    future.result()
+  File "/usr/local/lib/python3.10/dist-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/usr/local/lib/python3.10/dist-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/usr/local/lib/python3.10/dist-packages/s3transfer/tasks.py", line 269, in _main
+    self._submit(transfer_future=transfer_future, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/s3transfer/download.py", line 354, in _submit
+    response = client.head_object(
+  File "/usr/local/lib/python3.10/dist-packages/botocore/client.py", line 553, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/botocore/client.py", line 1009, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (404) when calling the HeadObject operation: Not Found
+[2024-02-29T17:35:54.235+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=dataIngestionDag, task_id=get_clean_csv_from_s3, execution_date=20240229T173402, start_date=20240229T173553, end_date=20240229T173554
+[2024-02-29T17:35:54.247+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 156 for task get_clean_csv_from_s3 (An error occurred (404) when calling the HeadObject operation: Not Found; 32263)
+[2024-02-29T17:35:54.281+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2024-02-29T17:35:54.294+0000] {taskinstance.py:3309} INFO - 0 downstream tasks scheduled from follow-on schedule check

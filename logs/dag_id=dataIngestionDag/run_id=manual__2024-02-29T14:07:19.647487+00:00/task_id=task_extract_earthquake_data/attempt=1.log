@@ -1,0 +1,13 @@
+[2024-02-29T14:07:22.317+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: dataIngestionDag.task_extract_earthquake_data manual__2024-02-29T14:07:19.647487+00:00 [queued]>
+[2024-02-29T14:07:22.325+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: dataIngestionDag.task_extract_earthquake_data manual__2024-02-29T14:07:19.647487+00:00 [queued]>
+[2024-02-29T14:07:22.325+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2024-02-29T14:07:22.340+0000] {taskinstance.py:2214} INFO - Executing <Task(PythonOperator): task_extract_earthquake_data> on 2024-02-29 14:07:19.647487+00:00
+[2024-02-29T14:07:22.345+0000] {standard_task_runner.py:60} INFO - Started process 7957 to run task
+[2024-02-29T14:07:22.348+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'dataIngestionDag', 'task_extract_earthquake_data', 'manual__2024-02-29T14:07:19.647487+00:00', '--job-id', '109', '--raw', '--subdir', 'DAGS_FOLDER/ingestionPipeline.py', '--cfg-path', '/tmp/tmpwtd49gu3']
+[2024-02-29T14:07:22.350+0000] {standard_task_runner.py:88} INFO - Job 109: Subtask task_extract_earthquake_data
+[2024-02-29T14:07:22.386+0000] {task_command.py:423} INFO - Running <TaskInstance: dataIngestionDag.task_extract_earthquake_data manual__2024-02-29T14:07:19.647487+00:00 [running]> on host ip-172-31-12-93.ap-south-1.compute.internal
+[2024-02-29T14:07:22.450+0000] {taskinstance.py:2510} INFO - Exporting env vars: AIRFLOW_CTX_DAG_EMAIL='shubh.sehgal2506@gmail.com' AIRFLOW_CTX_DAG_OWNER='shubh-airflow' AIRFLOW_CTX_DAG_ID='dataIngestionDag' AIRFLOW_CTX_TASK_ID='task_extract_earthquake_data' AIRFLOW_CTX_EXECUTION_DATE='2024-02-29T14:07:19.647487+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-02-29T14:07:19.647487+00:00'
+[2024-02-29T14:07:34.853+0000] {python.py:202} INFO - Done. Returned value was: FILE EXECUTION DONE
+[2024-02-29T14:07:34.868+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=dataIngestionDag, task_id=task_extract_earthquake_data, execution_date=20240229T140719, start_date=20240229T140722, end_date=20240229T140734
+[2024-02-29T14:07:34.902+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2024-02-29T14:07:34.916+0000] {taskinstance.py:3309} INFO - 1 downstream tasks scheduled from follow-on schedule check
