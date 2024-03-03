@@ -31,3 +31,13 @@ Upon completion of pre-processing operations, the refined data is stored in the 
 In essence, this meticulously crafted data ingestion pipeline embodies the convergence of robust infrastructure, efficient orchestration, and scalable processing capabilities. By adhering to best practices in data engineering and leveraging automation and cloud technologies, this pipeline streamlines the data lifecycle, from ingestion to insight, driving transformative outcomes for data-driven decision-making.
 
 To know about the next feature pipeline and training pipeline visit the repository - https://github.com/Shubhmeep/Earthquake-prediction-ML-pipeline.git
+
+## Disclaimer:
+
+Please note that this Airflow project is configured entirely on an EC2 instance. Therefore, individuals interested in utilizing this project must set up their own EC2 instance and establish Secure Socket Layer (SSL) access to it. Additionally, appropriate AWS access permissions must be configured for the root user to interact with AWS services.
+
+It's important to highlight that the instance access keys used for this project cannot be shared. The current deployment utilizes a t2.medium instance type, and the owner is responsible for the associated costs incurred from AWS.
+
+We advise users to follow AWS best practices and guidelines when setting up their EC2 instance and configuring access permissions. Any misuse or unauthorized access to AWS resources is the sole responsibility of the user.
+
+Thank you for your understanding and cooperation.
