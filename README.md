@@ -1,6 +1,6 @@
 # Seismic Magnitude Prediction: An Automated ML Pipeline for Earthquake Analysis using ANSS Data API
 
-## Introduction - Data Ingestion Pipeline Description
+## Data Ingestion Pipeline Description
 Herein lies the detailed breakdown of the meticulously crafted data ingestion pipeline microservice, engineered to seamlessly handle the flow of data from its raw form to a state primed for machine learning model training. This pipeline has been deployed and operationalized on an EC2 instance, leveraging the robust capabilities of Apache Airflow for orchestrating each stage of the process.
 
 <p align="center">
