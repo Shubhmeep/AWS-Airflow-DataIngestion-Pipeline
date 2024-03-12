@@ -4,7 +4,7 @@
 Herein lies the detailed breakdown of the meticulously crafted data ingestion pipeline microservice, engineered to seamlessly handle the flow of data from its raw form to a state primed for machine learning model training. This pipeline has been deployed and operationalized on an EC2 instance, leveraging the robust capabilities of Apache Airflow for orchestrating each stage of the process.
 
 <p align="center">
-  <img src="https://github.com/Shubhmeep/AWS-Airflow-DataIngestion-Pipeline/assets/97219802/9a4db5a1-4d35-4e65-bfce-0cdd5d62b9ee" width="800" alt="Data Ingestion Pipeline Image">
+  <img src="https://github.com/Shubhmeep/AWS-Airflow-DataIngestion-Pipeline/assets/97219802/84e04dad-5084-4b90-979f-747b314f439e" width="800" alt="Data Ingestion Pipeline Image">
 </p>
 
 In the Above architecture that i've created using [Lucidcharts](https://lucid.app/lucidchart/57b8e7c4-3203-46e1-b205-e510b7ca170e/edit?viewport_loc=728%2C877%2C2853%2C1259%2C.Q4MUjXso07N&invitationId=inv_279445a0-7953-4521-bf35-7309b1fbc793) This rope consists of the data-ingestion pipeline (a seperate microservice). explanation for how the pipeline is working is as follows:
